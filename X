@@ -1,2 +1,440 @@
 
-sisisisisi
+local v126 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local v127 =
+    v126:CreateWindow(
+    {
+        ["Title"] = "Xandar Hub | Community",
+        ["SubTitle"] = "By Xandar Hub",
+        ["TabWidth"] = 588 - 428,
+        ["Size"] = UDim2.fromOffset(580, 280 + 180),
+        ["Acrylic"] = true,
+        ["Theme"] = "Dark",
+        ["MinimizeKey"] = Enum.KeyCode.LeftControl
+    }
+)
+local v128 = {
+    ["Home"] = v127:AddTab({["Title"] = "Home", ["Icon"] = "rbxassetid://7733960981"}),
+    ["Main"] = v127:AddTab({["Title"] = "Main", ["Icon"] = "rbxassetid://7733749837"}),
+    ["Misc"] = v127:AddTab({["Title"] = "Misc", ["Icon"] = "rbxassetid://7733789088"}),
+    ["Weather"] = v127:AddTab({["Title"] = "Weather", ["Icon"] = "rbxassetid://7734068495"}),
+    ["Teleport"] = v127:AddTab({["Title"] = "Teleport", ["Icon"] = "rbxassetid://7733924216"}),
+    ["Performance"] = v127:AddTab({["Title"] = "Performance", ["Icon"] = "rbxassetid://7733955511"}),
+    ["Settings"] = v127:AddTab({["Title"] = "Settings", ["Icon"] = "settings"})
+}
+local v129 =
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))(
+
+)
+local v130 =
+    loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua")
+)()
+v129:SetLibrary(v126)
+v130:SetLibrary(v126)
+v130:BuildInterfaceSection(v128.Settings)
+v129:BuildConfigSection(v128.Settings)
+v127:SelectTab(2 - 1)
+v128.Home:AddButton(
+    {
+        ["Title"] = "Join our discord",
+        ["Description"] = "Click on this button to copy the invite link!",
+        ["Callback"] = function()
+            local v149 = 0
+            local v150
+            while true do
+                if (v149 == 0) then
+                    v150 = "https://discord.gg/25ms"
+                    if setclipboard then
+                        local v308 = 0
+                        local v309
+                        while true do
+                            if (v308 == 0) then
+                                v309 = 0
+                                while true do
+                                    if (v309 == 0) then
+                                        setclipboard(v150)
+                                        print("Discord invite link copied to clipboard!")
+                                        break
+                                    end
+                                end
+                                break
+                            end
+                        end
+                    else
+                        print("setclipboard function not available.")
+                    end
+                    break
+                end
+            end
+        end
+    }
+)
+v128.Home:AddParagraph(
+    {
+        ["Title"] = "About Our Discord",
+        ["Content"] = "NEOX HUB, the ultimate Roblox exploit hub, now has its very own Discord server! This is your go-to place to stay updated on all the latest features, scripts, and announcements. Here’s what you can do in our server:\nStay Informed:\nGet real-time updates on the latest developments, script releases, and exploit features available in NEOX HUB.\nScript Requests:\nNeed a specific script? Submit your requests, and our team or community may create one for you.\nExclusive Giveaways:\nParticipate in exciting Robux giveaways exclusively for our Discord members.\nCommunity Interaction:\nConnect with like-minded exploit enthusiasts, share tips, and get help from a supportive community.\nMuch More:\nEnjoy sneak peeks, community events, and future features tailored for NEOX HUB users."
+    }
+)
+v128.Home:AddParagraph(
+    {
+        ["Title"] = "Join us",
+        ["Content"] = "Join us now and take your Roblox experience to the next level with NEOX HUB’s dedicated community!"
+    }
+)
+v128.Main:AddButton(
+    {
+        ["Title"] = "Sell Holding Fish",
+        ["Description"] = "Sold Fish That Is In Your Hand",
+        ["Callback"] = function()
+            Workspace:WaitForChild("world"):WaitForChild("npcs"):WaitForChild("Marc Merchant"):WaitForChild(
+                "merchant"
+            ):WaitForChild("sell"):InvokeServer()
+        end
+    }
+)
+v128.Main:AddButton(
+    {
+        ["Title"] = "Sell All Fishes",
+        ["Description"] = "Sold All Fishes That Are In You Inventory",
+        ["Callback"] = function()
+            Workspace:WaitForChild("world"):WaitForChild("npcs"):WaitForChild("Marc Merchant"):WaitForChild(
+                "merchant"
+            ):WaitForChild("sellall"):InvokeServer()
+        end
+    }
+)
+v128.Main:AddButton(
+    {
+        ["Title"] = "Appraise fish",
+        ["Description"] = "IDK",
+        ["Callback"] = function()
+            Workspace:WaitForChild("world"):WaitForChild("npcs"):WaitForChild("Appraiser"):WaitForChild("appraiser"):WaitForChild(
+                "appraise"
+            ):InvokeServer()
+        end
+    }
+)
+v128.Main:AddButton(
+    {
+        ["Title"] = "AutoReel + AutoShake + AutoCast",
+        ["Description"] = "All Combine With Better Verion",
+        ["Callback"] = function()
+            local v151 =
+                loadstring(
+                game:HttpGet("https://raw.githubusercontent.com/Turtle-Brand/Turtle-Lib/main/source.lua")
+            )()
+            local v152 =
+                v151:Window(
+                "NEOX HUB",
+                {
+                    ["Color"] = Color3.fromRGB(25, 11 + 24, 74 - 29),
+                    ["Size"] = UDim2.new(0, 500, 0, 1995 - (210 + 1385))
+                }
+            )
+            local v153 = game:GetService("Players")
+            local v154 = game:GetService("StarterGui")
+            local v155 = game:GetService("GuiService")
+            local v156 = game:GetService("ReplicatedStorage")
+            local v157 = game:GetService("VirtualInputManager")
+            local v158 = game:GetService("UserInputService")
+            local v159 = v153.LocalPlayer
+            local v160 = false
+            local v161 = nil
+            local v162 = false
+            local v163 = false
+            local v164
+            local v165 = 1689 - (1201 + 488)
+            local function v166(v236, v237)
+                v154:SetCore(
+                    "SendNotification",
+                    {
+                        ["Title"] = "NEOX HUB",
+                        ["Text"] = v236,
+                        ["Duration"] = v237 or (0.5),
+                        ["Button1Text"] = "Okay"
+                    }
+                )
+            end
+            local function v167()
+                local v238 = 0
+                local v239
+                while true do
+                    if (v238 == 0) then
+                        v239 = 0
+                        while true do
+                            if (v239 == (585 - (352 + 233))) then
+                                v160 = not v160
+                                if v160 then
+                                    v164 = v159.Character.HumanoidRootPart.Position
+                                    v166("Auto Farm: Enabled", 2.5 - 1)
+                                    task.spawn(
+                                        function()
+                                            while v160 do
+                                                local v402 = 0
+                                                local v403
+                                                while true do
+                                                    if (v402 == 0) then
+                                                        v403 = 0
+                                                        while true do
+                                                            if (v403 == 0) then
+                                                                if v161 then
+                                                                    local v447 = 574 - (489 + 85)
+                                                                    local v448
+                                                                    while true do
+                                                                        if (v447 == 0) then
+                                                                            v448 = 1501 - (277 + 1224)
+                                                                            while true do
+                                                                                if (v448 == (1493 - (663 + 830))) then
+                                                                                    v161.events.shake:FireServer()
+                                                                                    print("Shaking rod...")
+                                                                                    break
+                                                                                end
+                                                                            end
+                                                                            break
+                                                                        end
+                                                                    end
+                                                                end
+                                                                task.wait(0.1)
+                                                                break
+                                                            end
+                                                        end
+                                                        break
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    )
+                                else
+                                    local v375 = 0
+                                    while true do
+                                        if (v375 == 0) then
+                                            v163 = false
+                                            v162 = false
+                                            v375 = 1
+                                        end
+                                        if (v375 == 2) then
+                                            v166("Auto Farm: Disabled", 2.5 - 1)
+                                            break
+                                        end
+                                        if (v375 == (876 - (461 + 414))) then
+                                            v155.SelectedObject = nil
+                                            if v161 then
+                                                v161.events.reset:FireServer()
+                                            end
+                                            v375 = 1
+                                        end
+                                    end
+                                end
+                                break
+                            end
+                        end
+                        break
+                    end
+                end
+            end
+            v159.Character.ChildAdded:Connect(
+                function(v240)
+                    if (v240:IsA("Tool") and v240.Name:lower():find("rod")) then
+                        v161 = v240
+                    end
+                end
+            )
+            v159.Character.ChildRemoved:Connect(
+                function(v241)
+                    if (v241 == v161) then
+                        v160 = false
+                        v163 = false
+                        v162 = false
+                        v161 = nil
+                        v155.SelectedObject = nil
+                    end
+                end
+            )
+            v159.PlayerGui.DescendantAdded:Connect(
+                function(v242)
+                    if v160 then
+                        if ((v242.Name == "button") and (v242.Parent.Name == "safezone")) then
+                            local v310 = 0
+                            local v311
+                            while true do
+                                if (v310 == 0) then
+                                    v311 = 0
+                                    while true do
+                                        if (v311 == 1) then
+                                            v157:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+                                            v157:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+                                            v311 = 2
+                                        end
+                                        if (v311 == 2) then
+                                            task.wait(250.1 - (172 + 78))
+                                            v155.SelectedObject = nil
+                                            break
+                                        end
+                                        if ((0) == v311) then
+                                            task.wait(0.3)
+                                            v155.SelectedObject = v242
+                                            v311 = 1
+                                        end
+                                    end
+                                    break
+                                end
+                            end
+                        elseif ((v242.Name == "playerbar") and (v242.Parent.Name == "bar")) then
+                            local v337 = 0
+                            while true do
+                                if (v337 == 1) then
+                                    v156.events.reelfinished:FireServer(100, true)
+                                    v165 = v165 + 1
+                                    break
+                                end
+                                if (v337 == 0) then
+                                    v163 = true
+                                    v242:GetPropertyChangedSignal("Position"):Wait()
+                                    v337 = 1
+                                end
+                            end
+                        end
+                    end
+                end
+            )
+            v159.PlayerGui.DescendantRemoving:Connect(
+                function(v243)
+                    if (v243.Name == "reel") then
+                        local v275 = 0
+                        local v276
+                        while true do
+                            if (v275 == 0) then
+                                v276 = 0
+                                while true do
+                                    if ((0) == v276) then
+                                        v163 = false
+                                        v162 = false
+                                        break
+                                    end
+                                end
+                                break
+                            end
+                        end
+                    end
+                end
+            )
+            task.spawn(
+                function()
+                    while true do
+                        local v258 = 0
+                        local v259
+                        while true do
+                            if (v258 == 0) then
+                                v259 = 0
+                                while true do
+                                    if ((0) == v259) then
+                                        if (v160 and not v162) then
+                                            if v161 then
+                                                v162 = true
+                                                task.wait(0.5)
+                                                v161.events.reset:FireServer()
+                                                v161.events.cast:FireServer(58.5 + 42)
+                                            end
+                                        end
+                                        task.wait()
+                                        break
+                                    end
+                                end
+                                break
+                            end
+                        end
+                    end
+                end
+            )
+            task.spawn(
+                function()
+                    while true do
+                        local v260 = 447 - (133 + 314)
+                        local v261
+                        while true do
+                            if (v260 == 0) then
+                                v261 = 0
+                                while true do
+                                    if (0 == v261) then
+                                        if v160 then
+                                            v159.Character.HumanoidRootPart.Position = v164
+                                        end
+                                        task.wait(0.75)
+                                        break
+                                    end
+                                end
+                                break
+                            end
+                        end
+                    end
+                end
+            )
+            v152:Button(
+                "Enable/Disable",
+                function()
+                    v167()
+                end
+            )
+            local v168 =
+                v152:Label("Auto Farm Status: OFF", Color3.fromRGB(468 - (199 + 14), 590 - 425, 1549 - (647 + 902)))
+            local v169 = v152:Label("Catches: 0", Color3.fromRGB(381 - 254, 376 - (85 + 148), 1455 - (426 + 863)))
+            task.spawn(
+                function()
+                    while true do
+                        local v262 = 0
+                        while true do
+                            if ((1655 - (873 + 781)) == v262) then
+                                task.wait(1)
+                                break
+                            end
+                            if (v262 == 0) then
+                                if v160 then
+                                    v168.Text = "Auto Farm Status: ON"
+                                else
+                                    v168.Text = "Auto Farm Status: OFF"
+                                end
+                                v169.Text = "Fishes Catches: " .. v165
+                                v262 = 2 - 1
+                            end
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
+local v131 =
+    v128.Misc:AddToggle(
+    "MyToggle",
+    {
+        ["Title"] = "Freeze",
+        ["Description"] = "Freeze for Your Player",
+        ["Default"] = false,
+        ["Callback"] = function(v170)
+            local v171 = 0
+            local v172
+            while true do
+                if (v171 == 0) then
+                    v172 = game:GetService("Players").LocalPlayer
+                    if (v172 and v172.Character and v172.Character:FindFirstChild("HumanoidRootPart")) then
+                        if v170 then
+                            local v340 = 0
+                            local v341
+                            while true do
+                                if (0 == v340) then
+                                    v341 = 0
+                                    while true do
+                                        if ((0) == v341) then
+                                            v172.Character.HumanoidRootPart.Anchored = true
+                                            print("Player is now frozen.")
+                                            break
+                                        end
+                                    end
+                                    break
+                                end
+                            end
+                        else
+                            local v342 = 0
+                            while true do
+                                if (v342 == 0) then
+                                    v172.Character.HumanoidRootPar
